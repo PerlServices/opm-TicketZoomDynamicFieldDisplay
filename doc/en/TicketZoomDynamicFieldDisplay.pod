@@ -1,0 +1,22 @@
+=head1 NAME
+
+TicketZoomDynamicFieldDisplay
+
+=head1 DESCRIPTION
+
+In stock OTRS, activated DynamicFields are shortened in the TicketZoom.
+With this addon, you can define which DynamicFields should be shown in
+full length.
+
+You can simply set the value in SysConfig to 2 instead of 1....
+
+=head1 REPOSITORY AND BUGTRACKER
+
+The code repository and a bugtracker is available at
+L<http://github.com/reneeb/otrs-TicketZoomDynamicFieldDisplay>.
+
+=head1 AUTHOR AND LICENSE
+
+This addon is licensed under the terms of AGPL 3.
+
+Renee Baecker, C<< <info@perl-services.de> >>
