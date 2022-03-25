@@ -1716,7 +1716,6 @@ sub MaskAgentZoom {
 # ---
             );
 
-Kernel::LOG( [ $DynamicFieldConfig, $Ticket{ 'DynamicField_' . $DynamicFieldConfig->{Name} }, $DisplayValue, $ValueMaxChars ] );
             push @FieldsWidget, {
                 $DynamicFieldConfig->{Name} => $ValueStrg->{Title},
                 Name                        => $DynamicFieldConfig->{Name},
