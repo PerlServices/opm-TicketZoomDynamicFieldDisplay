@@ -1696,30 +1696,31 @@ sub MaskAgentZoom {
             $Self->{DisplaySettings}->{ProcessWidgetDynamicField}->{ $DynamicFieldConfig->{Name} }
             )
         {
-
-# ---
-# PS
-# ---
-            my $ValueMaxChars = $ConfigObject->Get('Ticket::Frontend::DynamicFieldsZoomMaxSizeSidebar')   || 18;
-            my $DisplayValue  = $Self->{DisplaySettings}->{DynamicField}->{ $DynamicFieldConfig->{Name} } || 0;
-# ---
             my $ValueStrg = $DynamicFieldBackendObject->DisplayValueRender(
                 DynamicFieldConfig => $DynamicFieldConfig,
                 Value              => $Ticket{ 'DynamicField_' . $DynamicFieldConfig->{Name} },
                 LayoutObject       => $LayoutObject,
 
                 # no ValueMaxChars here, enough space available
+            );
+
 # ---
 # PS
 # ---
-                ValueMaxChars => ( $DisplayValue == 2 ? undef : $ValueMaxChars ),
-# ---
-            );
+            my $Name  = $DynamicFieldConfig->{Name};
+            my $Class = '';
 
-Kernel::LOG( [ $DynamicFieldConfig, $Ticket{ 'DynamicField_' . $DynamicFieldConfig->{Name} }, $DisplayValue, $ValueMaxChars ] );
+            $Class = 'NoCutValue' if $Self->{DisplaySettings}->{ProcessWidgetDynamicField}->{ $Name } == 2;
+# ---
+
             push @FieldsWidget, {
                 $DynamicFieldConfig->{Name} => $ValueStrg->{Title},
-                Name                        => $DynamicFieldConfig->{Name},
+# ---
+# PS
+# ---
+#                Name                        => $DynamicFieldConfig->{Name},
+                Name                        => $DynamicFieldConfig->{Name} . ' ' . $Class,
+# ---
                 Title                       => $ValueStrg->{Title},
                 Value                       => $ValueStrg->{Value},
                 ValueKey                    => $Ticket{ 'DynamicField_' . $DynamicFieldConfig->{Name} },
