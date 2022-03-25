@@ -143,7 +143,6 @@ sub Run {
                 $ScreenConfig{ $Param{Element} }->{$DynamicField} = $Config{$DynamicField};
             }
 
-Kernel::LOG( \%ScreenConfig );
             $Success = $ZnunyHelperObject->_DynamicFieldsScreenEnable(%ScreenConfig);
         }
         elsif ( $Param{Type} eq 'DefaultColumnsScreen' ) {
